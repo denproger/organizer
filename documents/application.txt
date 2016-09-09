@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+
+class TApplication {
+    
+    +addPlugins(plugin)
+
+    -m_taskManager: TTaskTreeManager
+    -m_plugins: TAbstractPlugin
+}
+
+
+TApplication "1" o-right- "*" TAbstractPlugin
+TApplication *-down- TTaskTreeManager
+
+
+TAbstractPlugin <|-down- TPluginEyeResting
+TAbstractPlugin <|-down- TPluginTodoList
+TAbstractPlugin <|-down- TPluginBookReading
+
+@enduml
