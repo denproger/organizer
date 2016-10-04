@@ -6,31 +6,13 @@
 #include <iostream>
 #include <ctype.h>
 
-
-
-//#include <turl.h>
+#include <turl.h>
 
 //#include "ttasktreemanager.h"
 
-#include <tapplication.h>
-
-int main(int argc, char *argv[])
-{
-
-    TApplication app;
-    if( !(app.init(argc, argv)) )
-    {
-        return 1;
-    }
-    return app.run(argc, argv);
-}
-
-///------------------------------
-// Test
-/*
 int main(int argc, char *argv[]) {
 
-//TTaskTreeManager    manager;
+    //TTaskTreeManager    manager;
     TUrl url("http://www.example.com/List of holidays.xml");
 
     std::cout << toConstCharPtr(url.getScheme()) << "\n";
@@ -38,6 +20,5 @@ int main(int argc, char *argv[]) {
     std::cout << url.getPort() << "\n";
     std::cout << toConstCharPtr(url.getPath()) << "\n";
     std::cout << toConstCharPtr(url.getQuery()) << "\n";
-
-return 0;
-}*/
+    return 0;
+}

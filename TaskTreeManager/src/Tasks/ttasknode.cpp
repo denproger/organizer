@@ -1,4 +1,5 @@
 #include "ttasknode.h"
+#include <ttasktree.h>
 
 TTaskNode::TTaskNode(TId id, TTaskTree *tree) :
     m_id(id), m_parent(NULL), m_tree(tree)
@@ -20,7 +21,7 @@ void TTaskNode::removeChildren(TId id)
     (void)(id);
 }
 
-TTaskTree *TTaskNode::find(const TId id)
+TTaskNode *TTaskNode::find(const TId id)
 {
     (void)(id);
     return NULL;
