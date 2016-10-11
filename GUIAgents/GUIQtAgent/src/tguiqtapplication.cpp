@@ -1,5 +1,6 @@
 #include "tguiqtapplication.h"
 #include <QApplication>
+#include <QScopedPointer>
 
 TGuiQtApplication::TGuiQtApplication():
     IGuiApplication(),
@@ -21,8 +22,8 @@ bool TGuiQtApplication::init(int argc, char *argv[])
 
 int TGuiQtApplication::run()
 {
-    if( m_application == NULL)
-        return -1;
-    return m_application->exec();
+    QScopedPointer<QApplication> app(m_application);
+
+    return app->exec();
 }
 

@@ -22,10 +22,10 @@ TApplication::TApplication():
 
 TApplication::~TApplication()
 {
-    if(m_guiAgent)
-        delete m_guiAgent;
-    if(m_guiApplication)
-        delete m_guiApplication;
+    //if(m_guiAgent)
+    //    delete m_guiAgent;
+    //if(m_guiApplication)
+    //    delete m_guiApplication;
     //if(m_guiFactory)
     //    delete m_guiFactory;
     if(m_pluginManager)

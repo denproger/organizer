@@ -6,7 +6,8 @@
 #include <QStandardPaths>
 
 TGuiQtAgent::TGuiQtAgent(): IGuiAgent(),
-    m_mainWindow(NULL)
+    m_mainWindow(NULL),
+    m_systemTray(NULL)
 {}
 
 TGuiQtAgent::~TGuiQtAgent()
@@ -48,6 +49,6 @@ void TGuiQtAgent::createMainWindow()
 void TGuiQtAgent::createSystemTray()
 {
     m_systemTray = new TSystemTray(NULL);
-    //QObject::connect(m_systemTray, &TSystemTray::exitPressed, m_mainWindow, &MainWindow::activateExit);
+    QObject::connect(m_systemTray, &TSystemTray::exitPressed, m_mainWindow, &MainWindow::activateExit);
 }
 
