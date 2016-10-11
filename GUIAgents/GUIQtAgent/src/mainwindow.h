@@ -15,6 +15,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+
+public slots:
+    void activateExit();
+
 private:
     Ui::MainWindow *ui;
 };

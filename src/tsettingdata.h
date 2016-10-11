@@ -1,11 +1,14 @@
-#ifndef TSETTINGS_H
-#define TSETTINGS_H
+#ifndef TSETTINGDATA_H
+#define TSETTINGDATA_H
 
+#include <ttypes.h>
 
-class TSettings
+class TSettingData
 {
 public:
-    TSettings();
+    TSettingData();
+
+    bool init(TString settingPath);
 };
 
-#endif // TSETTINGS_H
+#endif // TSETTINGDATA_H

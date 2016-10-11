@@ -8,6 +8,7 @@ class IPluginManager
 {
 public:
     IPluginManager();
+    virtual ~IPluginManager();
 
     virtual int getPluginCount() const = 0;
     virtual IPlugin* getPlugin(size_t index) = 0;

@@ -19,6 +19,16 @@ CONFIG(release, debug|release) {
 }
 
 CONFIG *= use_qt
+CONFIG *= static_link_plugins
+
+static_link_plugins {
+    DEFINES += STATIC_LINK_PLUGINS
+
+    LIBS += \
+        -L$$PWD/libs/ \
+        -lPluginEyesRelax
+}
+
 use_qt {
     QT += core
     QT += gui
@@ -27,8 +37,8 @@ use_qt {
 !use_qt {
     QT -= core
     QT -= gui
-    CONFIG   += console
-    CONFIG   -= app_bundle
+    CONFIG += console
+    CONFIG -= app_bundle
 }
 
 include (Interfaces/Interfaces.pri)
@@ -41,6 +51,8 @@ DEPENDPATH  += \
 
 INCLUDEPATH += \
     src/
+
+
 
 HEADERS += \
     src/tapplication.h \

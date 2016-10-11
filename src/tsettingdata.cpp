@@ -1,7 +1,13 @@
-#include "tsettings.h"
+#include "tsettingdata.h"
 
-TSettings::TSettings()
+TSettingData::TSettingData()
 {
 
+}
+
+bool TSettingData::init(TString settingPath)
+{
+    (void)(settingPath);
+    return true;
 }
 

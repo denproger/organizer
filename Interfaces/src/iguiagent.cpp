@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-IGUIAgent::IGUIAgent():
+IGuiAgent::IGuiAgent():
     m_taskTreeMananger(NULL),
     m_pluginManager(NULL)
 {}
 
-IGUIAgent::~IGUIAgent()
+IGuiAgent::~IGuiAgent()
 {}
 
-bool IGUIAgent::init(TTaskTreeManager *taskTreeMananger, IPluginManager *pluginManager)
+bool IGuiAgent::init(TTaskTreeManager *taskTreeMananger, IPluginManager *pluginManager)
 {
     m_taskTreeMananger = taskTreeMananger;
     m_pluginManager = pluginManager;

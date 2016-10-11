@@ -2,20 +2,23 @@
 #define IGUIAGENT_H
 
 #include <ipluginmanager.h>
+#include <ttypes.h>
+#include <string>
 
 class TTaskTreeManager;
-class IGUIAgent
+class IGuiAgent
 {
 public:
-    IGUIAgent();
-    virtual ~IGUIAgent();
+    IGuiAgent();
+    virtual ~IGuiAgent();
 
     TTaskTreeManager* getTaskTreeMananger() const { return m_taskTreeMananger; }
     IPluginManager* getPluginManager() const { return m_pluginManager; }
 
     virtual bool init(TTaskTreeManager* taskTreeMananger,
                       IPluginManager* pluginManager);
-    virtual int run(int argc, char *argv[]) = 0;
+    virtual TString getConfigPath() = 0;
+    virtual void show() = 0;
 
 protected:
     TTaskTreeManager*       m_taskTreeMananger;

@@ -9,6 +9,7 @@ class TPluginManager: public IPluginManager
 {
 public:
     TPluginManager();
+    virtual ~TPluginManager();
 
     bool detectPlugins();
 
@@ -18,8 +19,12 @@ public:
     virtual bool loads();
     virtual bool update();
 
+protected:
+    typedef std::vector< IPlugin* >     PluginList;
+    typedef PluginList::iterator        iterator;
+
 private:
-    std::vector< IPlugin* >     m_plugins;
+    PluginList              m_plugins;
 };
 
 #endif // TPLUGINMANAGER_H

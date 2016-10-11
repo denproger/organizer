@@ -1,29 +1,53 @@
 #include "tguiqtagent.h"
+#include <tsystemtray.h>
 #include <QApplication>
+#include <QDir>
+#include <QFileInfo>
+#include <QStandardPaths>
 
-TGUIQtAgent::TGUIQtAgent(): IGUIAgent(),
+TGuiQtAgent::TGuiQtAgent(): IGuiAgent(),
     m_mainWindow(NULL)
 {}
 
-TGUIQtAgent::~TGUIQtAgent()
+TGuiQtAgent::~TGuiQtAgent()
 {
     if(m_mainWindow)
         delete m_mainWindow;
+    if(m_systemTray)
+        delete m_systemTray;
 }
 
-bool TGUIQtAgent::init(TTaskTreeManager* taskTreeMananger,
+bool TGuiQtAgent::init(TTaskTreeManager* taskTreeMananger,
                        IPluginManager* pluginManager)
 {
-    return IGUIAgent::init(taskTreeMananger, pluginManager);
+    if( !(IGuiAgent::init(taskTreeMananger, pluginManager)) )
+        return false;
+
+    createMainWindow();
+    createSystemTray();
+
+    return true;
 }
 
-int TGUIQtAgent::run(int argc, char *argv[])
+TString TGuiQtAgent::getConfigPath()
 {
-    QApplication app(argc, argv);
+    return QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0];
+}
 
-    m_mainWindow = new MainWindow();
+void TGuiQtAgent::show()
+{
+    m_systemTray->show();
     //m_mainWindow->show();
+}
 
-    return app.exec();
+void TGuiQtAgent::createMainWindow()
+{
+    m_mainWindow = new MainWindow();
+}
+
+void TGuiQtAgent::createSystemTray()
+{
+    m_systemTray = new TSystemTray(NULL);
+    //QObject::connect(m_systemTray, &TSystemTray::exitPressed, m_mainWindow, &MainWindow::activateExit);
 }
 

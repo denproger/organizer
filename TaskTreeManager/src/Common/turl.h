@@ -40,4 +40,24 @@ private:
     TString     m_query;
 };
 
+///------------------------------
+// Test
+/*
+
+#include <turl.h>
+
+int main(int argc, char *argv[]) {
+
+//TTaskTreeManager    manager;
+    TUrl url("http://www.example.com/List of holidays.xml");
+
+    std::cout << toConstCharPtr(url.getScheme()) << "\n";
+    std::cout << toConstCharPtr(url.getHost()) << "\n";
+    std::cout << url.getPort() << "\n";
+    std::cout << toConstCharPtr(url.getPath()) << "\n";
+    std::cout << toConstCharPtr(url.getQuery()) << "\n";
+
+return 0;
+}*/
+
 #endif // TURL_H
