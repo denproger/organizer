@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+
+class TTaskTreeManager .right.> TAbstractSource
+
+class TAbstractSource {
+    +TAbstractSource(alias)
+    +{abstract} init() : bool
+    +{abstract} importTree(url, tree): bool
+    +{abstract} exportTree(url, tree): bool
+    +{abstract} release() : bool
+}
+
+TAbstractSource <|-down- TSourceJsonFile
+class TSourceJsonFile {
+    +{abstract} init() : bool
+    +{abstract} importTree(url, tree): bool
+    +{abstract} exportTree(url, tree): bool
+    +{abstract} release() : bool
+    -reader
+}
+
+TSourceJsonFile o-right- JSON::Reader
+
+@enduml
