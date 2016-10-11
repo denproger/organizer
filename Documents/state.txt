@@ -1,0 +1,31 @@
+@startuml
+skinparam monochrome true
+
+class TEyesReaxPlugin {
+    +update()
+    -state
+}
+
+TEyesReaxPlugin o-right- IAbstractState
+
+class IAbstractState {
+    +update()
+}
+
+class TStateWaiting {
+    +update()
+}
+
+class TStateReminder  {
+    +update()
+}
+
+class TStateIdleness {
+    +update()
+}
+
+IAbstractState <|-down- TStateWaiting
+IAbstractState <|-down- TStateReminder
+IAbstractState <|-down- TStateIdleness
+
+@enduml
