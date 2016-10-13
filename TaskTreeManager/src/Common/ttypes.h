@@ -15,7 +15,7 @@ typedef uint64_t            TId;
     /** @brief TString is the type of string (UTF-8)*/
     typedef std::string     TString;
 #endif
-    const char* toConstCharPtr(const TString& str);
+    const char* getBytes(const TString& str);
 
 #endif // TTYPES_H
 
